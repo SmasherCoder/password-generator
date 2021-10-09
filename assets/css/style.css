@@ -42,6 +42,10 @@ header {
   padding: 30px 40px;
 }
 
+h2 {
+  text-align: center;
+}
+
 .card-header::after {
   content: " ";
   display: block;
@@ -118,6 +122,25 @@ button[disabled] {
   overflow: hidden;
 }
 
+
+/*Password Criteria Form Styling*/
+     
+input[type=number] {
+  width: 70%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+}
+
+/*add padding to container elements*/
+
+.container {
+  padding-top: 16px;
+}
+
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
@@ -136,53 +159,5 @@ button[disabled] {
   }
 }
 
-/*add full-width input fields*/
-     
-input[type=text],
-input[type=password],
-input[type=number] {
-    width: 100%;
-    padding: 8px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 2px solid #ccc;
-    box-sizing: border-box;
-}
-/* set a style for all buttons*/
- 
-button {
-    background-color: Green;
-    color: white;
-    padding: 15px 20px;
-    margin: 8px 0;
-    cursor: pointer;
-    width: 100%;
-}
-/*set styles for the cancel button*/
- 
-.cancelbtn {
-    padding: 15px 20px;
-    background-color: #FF2E00;
-}
-/*float cancel and signup buttons and add an equal width*/
- 
-.cancelbtn,
-.signupbtn {
-    float: left;
-    width: 50%;
-}
-/*add padding to container elements*/
- 
-.container {
-    padding: 16px;
-}
-/*clear floats*/
- 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-/*styles for cancel button and signup button
-  on extra small screens*/
+
  
