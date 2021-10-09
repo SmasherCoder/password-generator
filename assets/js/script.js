@@ -1,53 +1,66 @@
-// Assignment code here
-var symbol = '!"#$%&()*+,-./:;%20<=>?@[\]\'^_`{|}~';
-var number = '0123456789';
-var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var lower = 'abcdefghijklmnopqrstuvwxyz';
+// Assignment code
 
-// Get references to the #generate element
+
+// Reference to the #generate tag
 var generateBtn = document.querySelector("#generate");
 
 
-// Write password to the #password input
+// Function to prompt how long and what type of password
 function writePassword() {
-  var made = "";
-  var passLength = 0;
-  length = 0;
+  // Local function variables
+  var symbol = '!"#$%&()*+,-./:;%20<=>?@[\]\'^_`{|}~';
+  var number = '0123456789';
+  var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var lower = 'abcdefghijklmnopqrstuvwxyz';
+  var characters = '';
+  var length = 0;
+
+  // Prompt for password length
   length = window.prompt("Enter your password length. 8 to 128 characters please.");
   console.log(length);
+
+  // Validate input is a number
   while (isNaN(length)) {
     length = window.prompt("Try again. Enter your password length. 8 to 128 characters please.");
   }
+
+  // Validate number is between 8 and 128
   if (length < 8 || length > 128){
     alert("Try again.");
     writePassword();
   }
-  console.log(length);
-  made = '';
-  while (made === ''){
-  if (window.confirm("Do you want numbers in your password?")) {
-    made = made += number;
+
+  // While loop to make sure there is a character type chosen
+  while (characters === ''){
+  if (window.confirm("Do you want numbers in your password? \nPlease click OK for Yes and CANCEL for no.")) {
+    characters = characters += number;
   }
-  if (window.confirm("Do you want uppercase letters in your password?")) {
-    made = made += upper;
+  if (window.confirm("Do you want uppercase letters in your password? \nPlease click OK for Yes and CANCEL for no.")) {
+    characters = characters += upper;
   }
-  if (window.confirm("Do you want lowercase letters in your password?")) {
-    made = made += lower;
+  if (window.confirm("Do you want lowercase letters in your password? \nPlease click OK for Yes and CANCEL for no.")) {
+    characters = characters += lower;
   }
-  if (window.confirm("Do you want symbols in your password?")) {
-    made = made += symbol;
+  if (window.confirm("Do you want symbols in your password? \nPlease click OK for Yes and CANCEL for no.")) {
+    characters = characters += symbol;
   }
-  if (made === '') {
-    alert("Please select one character type!");
+  // If no character selection is made then it reminds user to select at least one character type
+  if (characters === '') {
+    alert("Please select at least one character type!");
   }
   }
 
-  var password = makePass(made, length);
+  // Runs function to create random password based upon selections above
+  var password = makePass(characters, length);
+
+  // Grabs the spot where the password is going to be displayed
   var passwordText = document.querySelector("#password");
+
+  // Writes the password to the screen
   passwordText.value = password;
 }
 
-// Function to create passcode
+// Function to create random passcode
 function makePass(type, length) {
   var result = '';
   var charactersLength = type.length;
