@@ -6,43 +6,14 @@ var lower = 'abcdefghijklmnopqrstuvwxyz';
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-
+var symbolCheckbox = document.querySelector("input[name=symbols]");
+var lowercaseCheckbox = document.querySelector("input[name=lowercase]");
+var uppercaseCheckbox = document.querySelector("input[name=UPPERCASE]");
+var numberCheckbox = document.querySelector("input[name=numbers]");
 
 // Write password to the #password input
 function writePassword() {
-  var made = "";
-  var passLength = 0;
-  length = 0;
-  length = window.prompt("Enter your password length. 8 to 128 characters please.");
-  console.log(length);
-  while (isNaN(length)) {
-    length = window.prompt("Try again. Enter your password length. 8 to 128 characters please.");
-  }
-  if (length < 8 || length > 128){
-    alert("Try again.");
-    writePassword();
-  }
-  console.log(length);
-  made = '';
-  while (made === ''){
-  if (window.confirm("Do you want numbers in your password?")) {
-    made = made += number;
-  }
-  if (window.confirm("Do you want uppercase letters in your password?")) {
-    made = made += upper;
-  }
-  if (window.confirm("Do you want lowercase letters in your password?")) {
-    made = made += lower;
-  }
-  if (window.confirm("Do you want symbols in your password?")) {
-    made = made += symbol;
-  }
-  if (made === '') {
-    alert("Please select one character type!");
-  }
-  }
-
-  var password = makePass(made, length);
+  var password = makePass(made, passLength);
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
@@ -58,6 +29,11 @@ return result;
 }
 
 
+var passLength = 128;
+var made = symbol + number + upper + lower
+
+
+console.log(makePass(made, passLength));
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 

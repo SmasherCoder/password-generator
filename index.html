@@ -25,7 +25,29 @@
           ></textarea>
         </div>
         <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>  
+          <button onclick="writePassword()" class="btn">Click for password criteria</button>  
+          <div>
+          <h2>What type of password?</h2>
+          <!--Step 1:Adding HTML-->
+          <form action="/action_page.php" style="border:1px solid #ccc">
+              <div class="container">
+                  <label><b>How many characters?</b></label><br>
+                  <input type="number" placeholder="Please enter between 8 to 128" name="characters" required><br>
+                  <label><b>What kind of characters in the password?</b></label><br>
+                  <label>Please select at least one type.</b></label><br><br>
+                  <input type="checkbox" id="characters" name="lowercase" value="lowercase">
+                  <label for="lowercase">lowercase&emsp;</label>
+                  <input type="checkbox" id="characters" name="UPPERCASE" value="UPPERCASE">
+                  <label type="checkbox">UPPERCASE&emsp;</label>
+                  <input type="checkbox" id="characters" name="numbers" value="numbers">
+                  <label type="checkbox"> Numbers&emsp;</label>
+                  <input type="checkbox" id="characters" name="symbols" value="symbols">
+                  <label type="checkbox"> Symbols</label><br>
+                  <label id="error"></label><br>
+                  <button id="generate" class="btn">Generate Password</button>
+              </div>
+          </form>
+        </div>
         </div>
       </div>
     </div>
