@@ -22,7 +22,7 @@ function writePassword() {
 function makePass(type, length) {
   var result = '';
   var charactersLength = type.length;
-  for ( var i = 0; i < length; i++ ) {
+  for git ( var i = 0; i < length; i++ ) {
     result += type.charAt(Math.random() * charactersLength);
   }
 return result;
